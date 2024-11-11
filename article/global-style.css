@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+    font-family: 'Katahdin Round';
+    src: url(assets/fonts/KatahdinRound-Bold.otf);
+}
+
+/* ==================== 
+>>> Variables
+==================== */
+
+:root {
+    --color-primary: #ffc16b;
+    --color-background: #1B1A19;
+    --color-accent: #fffafa;
+    --font-primary: 'Katahdin Round';
+    --font-secondary: 'Urbanist';
+    --font-weight: 300;
+}
+
+/* ==================== 
+>>> Global Rulesets
+==================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    background: var(--color-background);
+    overflow: hidden;
+    
+}
+
+/* ==================== 
+>>> Rulesets
+==================== */
+
+header.header {
+    background: var(--color-background);
+    height: 120px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+header.header img {
+    width: 48px
+}
+
+header.header .interactions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header.header .interactions a {
+    position: relative;
+    margin: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+    background: transparent;
+    padding: 16px 0;
+    font-family: var(--font-secondary);
+    font-size: 16px;
+    color: var(--color-accent);
+    transition: all 0.2s ease-in-out;
+    color: var(--color-primary);
+}
+
+header.header .interactions a:hover {
+    color: var(--color-accent);
+}
+
+header.header .interactions a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: var(--color-primary);
+    z-index: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+header.header .interactions a:hover::before {
+    width: 100%;
+}
+
+header {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around; 
+    background: var(--color-primary);
+    color: var(--color-background);
+    margin-bottom: 48px;
+}
+
+header h1 {
+    font-family: var(--font-primary);
+    font-size: 3em;
+}
+
+h1.header {
+    color: var(--color-accent);
+    font-family: var(--font-primary);
+    max-width: 1000px;
+    padding-bottom: 12px;
+    border-bottom: solid 2px;
+    margin: 32px auto;
+    font-weight: 100;
+}
+
+h1.header::before {
+    content: '#';
+    color: #494543;
+    font-weight: 100;
+    padding-right: 8px;
+}
+
+p.text {
+    color: var(--color-accent);
+    font-family: var(--font-secondary);
+    max-width: 1000px;
+    margin: 32px auto;
+    font-size: 18px;
+}
+
+a.btn {
+    position: relative;
+    margin: 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+    background: transparent;
+    padding: 16px 0;
+    font-family: var(--font-secondary);
+    font-size: 16px;
+    color: var(--color-accent);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    color: var(--color-primary);
+}
+
+a.btn:hover {
+    color: var(--color-accent);
+}
+
+a.btn::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: var(--color-primary);
+    z-index: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+a.btn:hover::before {
+    width: 100%;
+}
+
+a.btn.unavailable {
+    cursor: not-allowed;
+    color: #726c69;
+}
+
+a.btn.unavailable:hover::before {
+    width: 0;
+}

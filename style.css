@@ -89,6 +89,14 @@ body {
     animation-timing-function: linear;
 }
 
+#copy {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    color: var(--color-background);
+    font-family: var(--font-secondary);
+}
+
 /* ==================== 
 >>> SECTION: LANDING
 ==================== */
