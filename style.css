@@ -366,6 +366,16 @@ footer .refs a:hover {
 }
 
 /* ==================== 
+>>> Media Queries: Desktop Adaptation
+==================== */
+
+@media screen and (min-width: 1000px) {
+    footer {
+        border-radius: 16px 16px 0 0;
+    }
+}
+
+/* ==================== 
 >>> Media Queries: Mobile Adaptation
 ==================== */
 
