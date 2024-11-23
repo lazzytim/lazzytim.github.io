@@ -206,7 +206,7 @@ header .links a:nth-child(1)::before {
 }
 
 header .links a:nth-child(2)::before {
-    background: #c055f1;
+    background: #f155a3;
     transform: rotate(-2deg);
 }
 
@@ -279,6 +279,7 @@ header .burger {
 .land .box .text {
     text-align: center;
     max-width: 1000px;
+    color: var(--color-accent);
     font-size: 84px;
     font-family: var(--font-primary);
     font-weight: var(--font-weight);
@@ -313,22 +314,54 @@ footer {
     height: 20vh;
     background: var(--color-accent);
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     padding: 0 100px;
     position: relative;
-    border-radius: 32px 32px 0 0;
     box-shadow: 0 -8px 32px 0 var(--color-secondary);
 }
 
-footer p, footer a {
-    color: var(--color-background);
-    font-family: var(--font-primary);
-    font-weight: var(--font-weight);
-    font-size: 2em;
+footer img {
+    padding-top: 32px;
+    width: 32px;
+    height: 32px;
 }
 
-footer a:hover {
+footer .lang {
+    padding-top: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 220px;
+}
+
+footer .lang a {
+    font-size: 18px;
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight);
+    color: var(--color-background);
+}
+
+footer .lang a:hover {
+    text-decoration: underline;
+}
+
+footer .refs {
+    padding-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+}
+
+footer .refs a, footer .refs p {
+    font-size: 18px;
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight);
+    color: var(--color-background);
+}
+
+footer .refs a:hover {
     text-decoration: underline;
 }
 
@@ -369,13 +402,5 @@ footer a:hover {
     
     .land .box .text .textColored2 {
         font-size: 64px;
-    }
-    
-    footer {
-        height: 10vh;
-    }
-    
-    footer a, footer p {
-        font-size: 0.8em;
     }
 }
