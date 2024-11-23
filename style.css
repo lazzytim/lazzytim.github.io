@@ -1,21 +1,83 @@
-@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
-
-@font-face {
-    font-family: 'Katahdin Round';
-    src: url(assets/fonts/KatahdinRound-Bold.otf);
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap');
 
 /* ==================== 
 >>> Variables
 ==================== */
 
 :root {
-    --color-primary: #ffc16b;
-    --color-background: #1B1A19;
-    --color-accent: #fffafa;
-    --font-primary: 'Katahdin Round';
-    --font-secondary: 'Urbanist';
-    --font-weight: 300;
+    --color-secondary: #888888;
+    --color-background: #fefefe;
+    --color-accent: #1b1a19;
+    --font-primary: 'Inter Tight';
+    --font-secondary: 'Just Me Again Down Here';
+    --font-weight: 500;
+}
+
+/* ==================== 
+>>> Animation Queries
+==================== */
+
+@keyframes Animation_textColored1 {
+    0% {
+        color: #c055f1;
+    }
+    
+    20% {
+        color: #F155C2;
+    }
+    
+    60% {
+        color: #556AF1;
+    }
+    
+    80% {
+        color: #9C55F1;
+    }
+    
+    100% {
+        color: #c055f1;
+    }
+}
+
+@keyframes Animation_textColored2 {
+   
+    0% {
+        color: #f1da56;
+    }
+    
+    20% {
+        color: #F19756;
+    }
+    
+    60% {
+        color: #80F156;
+    }
+    
+    80% {
+        color: #DAF156;
+    }
+    
+    100% {
+        color: #f1da56;
+    }
+}
+
+/* ==================== 
+>>> Animation Ruleset (app.js co-sided)
+==================== */
+
+.AnimHidden {
+    opacity: 0;
+    transform: translateY(100px);
+    filter: blur(10px);
+    transition: all 1s ease-in-out;
+}
+
+.AnimShow {
+    opacity: 1;
+    transform: translateY(0px);
+    filter: blur(0);
 }
 
 /* ==================== 
@@ -29,203 +91,291 @@
     list-style: none;
 }
 
+*::selection {
+    background: #f1da5670;
+    backdrop-filter: invert(100%);
+    
+    border-radius: 12px;
+    position: relative;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
 body {
     background: var(--color-background);
-    overflow: hidden;
-    
-    max-width: 1000px;
+    max-width: 1920px;
     margin: 0 auto;
+    overflow-x: hidden;
 }
 
 /* ==================== 
->>> Animations
+>>> Sidepanel
 ==================== */
 
-@keyframes rollingline {
-    0% {
-        transform: translateX(-50%) translateY(100%);
-    }
-    
-    0.5% {
-        transform: translateX(-48%) translateY(0%);
-    }
-    
-    99.5% {
-        transform: translateX(2%) translateY(0%);
-    }
-    
-    100% {
-        transform: translateX(0%)  translateY(100%);
-    }
-}
-
-/* ==================== 
->>> Singular Rulesets
-==================== */
-
-#bg {
+.sidepanel {
     position: absolute;
-    z-index: -1;
-    top: 1;
-    left: 0;
-    height: 100vh;
-    width: 100%;
-    background: url(assets/bg.png);
-    background-position-x: center;
-    background-repeat: no-repeat;
-}
-
-#line {
-    background: url(assets/line.png);
-    height: 60px;
-    width: 200%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transform: translateX(-50%);
-    animation-name: rollingline;
-    animation-duration: 90s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-
-#copy {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    color: var(--color-background);
-    font-family: var(--font-secondary);
-}
-
-/* ==================== 
->>> SECTION: LANDING
-==================== */
-
-.landing {
-    height: 100vh;
-}
-
-.landing .header {
-    height: 240px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 64px;
-}
-
-.landing .header .logo {
-    width: 128px;
-}
-
-.landing .header .interactions {
-    width: 260px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.landing .header .interactions button {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: solid 1px var(--color-accent);
-    border-radius: 24px;
-    width: fit-content;
-    height: 70px;
-    background: transparent;
-    padding: 16px 32px;
-    font-family: var(--font-secondary);
-    font-size: 32px;
-    color: var(--color-accent);
-    transition: all 0.2s ease-in-out;
-}
-
-.landing .header .interactions button:hover {
-    background: var(--color-primary);
-    color: var(--color-background);
-}
-.landing .header .interactions button .lang-scroll {
-    transform: translateY(2px);
-}
-
-.landing .header .interactions button .lang {
-    padding-right: 16px;
-}
-
-.landing .title {
-    display: flex;
     flex-direction: column;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    height: 100%;
+    background: var(--color-accent);
+    z-index: 1;
+    transition: all 0.2s cubic-bezier(.5,0,.75,.5);
+}
+
+.sidepanel.active {
+    right: 0%;
+}
+
+.sidepanel .images {
+    display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.landing .title .emphasis {
-    text-align: center;
-    font-family: var(--font-secondary);
-    font-size: 36px;
-    color: var(--color-accent);
-    padding-bottom: 16px;
+.sidepanel .images .logo {
+    width: 128px;
+    height: 128px;
+    padding: 64px 0 32px 64px ;
+    transform: translateX(-18px);
 }
 
-.landing .title .name {
-    text-align: center;
+.sidepanel .images .cross {
+    width: 48px;
+    height: 48px;
+    padding: 0 64px;
+    transform: translateY(16px);
+    cursor: pointer;
+}
+
+.sidepanel a {
+    padding: 0 64px;
+    font-size: 84px;
     font-family: var(--font-primary);
-    font-size: 64px;
-    color: var(--color-primary);
-    padding-bottom: 4px;
-}
-
-.landing .title .description {
-    text-align: center;
-    font-family: var(--font-secondary);
-    font-size: 36px;
-    color: var(--color-accent);
-    max-width: 600px;
-    padding-bottom: 32px;
-}
-
-.landing .title .buttons {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.landing .title .buttons .buttons-item {
-    position: relative;
-    margin: 0 8px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: solid 1px var(--color-accent);
-    border-radius: 24px;
-    width: fit-content;
-    background: transparent;
-    padding: 16px 32px;
-    font-family: var(--font-secondary);
-    font-size: 32px;
-    color: var(--color-accent);
-    transition: all 0.2s ease-in-out;
-    overflow: hidden;
-}
-
-.landing .title .buttons .buttons-item:hover {
+    font-weight: var(--font-weight);
     color: var(--color-background);
-    border-color: var(--color-primary);
 }
 
-.landing .title .buttons .buttons-item::before {
+.sidepanel a:hover {
+    text-decoration: underline;
+}
+
+/* ==================== 
+>>> Header
+==================== */
+
+header {
+    padding: 100px 0;
+    height: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header img {
+    width: 128px;
+    height: 128px;
+}
+
+header .links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .links a {
+    padding: 12px 24px;
+    position: relative;
+    color: var(--color-secondary);
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight);
+    font-size: 36px;
+    transition: all 0.2s ease-in-out;
+}
+
+header .links a:hover {
+    color: var(--color-accent);
+}
+
+header .links a:nth-child(1)::before {
+    background: #F1DA56;
+    transform: rotate(3deg);
+}
+
+header .links a:nth-child(2)::before {
+    background: #c055f1;
+    transform: rotate(-2deg);
+}
+
+header .links a:nth-child(3)::before {
+    background: #57D057;
+    transform: rotate(2deg);
+}
+
+header .links a:nth-child(4)::before {
+    background: #7fc3eb;
+    transform: rotate(-1deg);
+}
+
+header .links a::before {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 0;
-    height: 100%;
-    background: var(--color-primary);
+    width: 0%;
+    height: 0;
+    background: #88888870;
     z-index: -1;
-    transition: all 0.2s ease-in-out;
-    clip-path: circle(100.0% at 0 50%);
+    border-radius: 24px 24px 24px 4px;
+    transition: all 0.2s cubic-bezier(.5,0,.5,1.4);
 }
 
-.landing .title .buttons .buttons-item:hover::before {
-    width: 150%;
+header .links a:hover::before {
+    height: 100%;
+    width: 100%;
+}
+
+header .burger {
+    display: none;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+}
+
+/* ==================== 
+>>> Section: Land
+==================== */
+
+.land {
+    position: relative;
+    min-height: 100vh;
+    padding: 0 100px;
+    background: var(--color-background);
+}
+
+.land .box.AnimShow {
+    transition-delay: 200ms;
+}
+
+.land .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.land .box .top {
+    color: var(--color-secondary);
+    font-size: 36px;
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight);
+    padding-bottom: 12px;
+    text-align: center;
+}
+
+.land .box .text {
+    text-align: center;
+    max-width: 1000px;
+    font-size: 84px;
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight);
+    line-height: 100%;
+}
+
+.land .box .text .textColored1 {
+    color: #c055f1;
+    font-size: 128px;
+    font-family: var(--font-secondary);
+    font-weight: 100;
+    animation-name: Animation_textColored1;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+.land .box .text .textColored2 {
+    color:#f1da56;
+    font-size: 128px;
+    font-family: var(--font-secondary);
+    font-weight: 100;
+    animation-name: Animation_textColored2;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+/* ==================== 
+>>> Footer
+==================== */
+
+footer {
+    height: 20vh;
+    background: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
+    position: relative;
+    border-radius: 32px 32px 0 0;
+    box-shadow: 0 -8px 32px 0 var(--color-secondary);
+}
+
+footer p, footer a {
+    color: var(--color-background);
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight);
+    font-size: 2em;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ==================== 
+>>> Media Queries: Mobile Adaptation
+==================== */
+
+@media screen and (max-width: 768px) {
+    
+    .sidepanel {
+        display: flex;
+    }
+    
+    header img {
+        width: 64px;
+        height: 64px;
+    }
+    
+    header .links {
+        display: none;
+    }
+    
+    header .burger {
+        display: block;
+    }
+    
+    .land .box .top {
+        font-size: 16px;
+    }
+    
+    .land .box .text {
+        font-size: 32px;
+    }
+    
+    .land .box .text .textColored1 {
+        font-size: 64px;
+    }
+    
+    .land .box .text .textColored2 {
+        font-size: 64px;
+    }
+    
+    footer {
+        height: 10vh;
+    }
+    
+    footer a, footer p {
+        font-size: 0.8em;
+    }
 }

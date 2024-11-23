@@ -1,21 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
-
-@font-face {
-    font-family: 'Katahdin Round';
-    src: url(../assets/fonts/KatahdinRound-Bold.otf);
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap');
 
 /* ==================== 
 >>> Variables
 ==================== */
 
 :root {
-    --color-primary: #ffc16b;
-    --color-background: #1B1A19;
-    --color-accent: #fffafa;
-    --font-primary: 'Katahdin Round';
-    --font-secondary: 'Urbanist';
-    --font-weight: 300;
+    --color-secondary: #888888;
+    --color-background: #fefefe;
+    --color-accent: #1b1a19;
+    --font-primary: 'Inter Tight';
+    --font-secondary: 'Just Me Again Down Here';
+    --font-weight: 500;
+    
 }
 
 /* ==================== 
@@ -30,9 +27,7 @@
 }
 
 body {
-    background: var(--color-background);
-    overflow: hidden;
-    
+    background: var(--color-background); 
 }
 
 /* ==================== 
@@ -64,12 +59,12 @@ header.header .interactions a {
     justify-content: space-between;
     width: fit-content;
     background: transparent;
-    padding: 16px 0;
-    font-family: var(--font-secondary);
+    padding: 16px 0 8px 0;
+    font-family: var(--font-primary);
     font-size: 16px;
     color: var(--color-accent);
     transition: all 0.2s ease-in-out;
-    color: var(--color-primary);
+    color: var(--color-accent);
 }
 
 header.header .interactions a:hover {
@@ -83,7 +78,7 @@ header.header .interactions a::before {
     left: 0;
     width: 0;
     height: 4px;
-    background: var(--color-primary);
+    background: var(--color-accent);
     z-index: 0;
     transition: all 0.2s ease-in-out;
 }
@@ -97,7 +92,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-around; 
-    background: var(--color-primary);
+    background: var(--color-accent);
     color: var(--color-background);
     margin-bottom: 48px;
 }
@@ -105,6 +100,12 @@ header {
 header h1 {
     font-family: var(--font-primary);
     font-size: 3em;
+    font-weight: 500;
+}
+
+div.treated {
+    margin: 0 auto;
+    max-width: 1000px;
 }
 
 h1.header {
@@ -113,23 +114,68 @@ h1.header {
     max-width: 1000px;
     padding-bottom: 12px;
     border-bottom: solid 2px;
-    margin: 32px auto;
-    font-weight: 100;
-}
-
-h1.header::before {
-    content: '#';
-    color: #494543;
-    font-weight: 100;
-    padding-right: 8px;
+    font-weight: var(--font-weight);
+    margin: 0 48px;
 }
 
 p.text {
     color: var(--color-accent);
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
     max-width: 1000px;
-    margin: 32px auto;
+    padding: 32px 0;
     font-size: 18px;
+    font-weight: var(--font-weight);
+    margin: 0 48px;
+}
+
+p.info {
+    color: var(--color-accent);
+    font-family: var(--font-primary);
+    max-width: 1000px;
+    padding: 32px 32px;
+    font-size: 18px;
+    font-weight: var(--font-weight);
+    border-left: solid 5px #57d057;
+    background: #57d05770;
+    margin: 0 48px;
+}
+
+p.warn {
+    color: var(--color-accent);
+    font-family: var(--font-primary);
+    max-width: 1000px;
+    padding: 32px 32px;
+    font-size: 18px;
+    font-weight: var(--font-weight);
+    border-left: solid 5px #f1da56;
+    background: #f1da5670;
+    margin: 0 48px;
+}
+
+a.ref {
+    color: var(--color-secondary);
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+a.ref:hover {
+    color: var(--color-accent);
+}
+
+a.ref::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: #88888870;
+    z-index: -1;
+    transition: all 0.2s ease-in-out;
+}
+
+a.ref:hover::before {
+    width: 100%;
 }
 
 a.btn {
