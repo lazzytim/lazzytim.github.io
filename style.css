@@ -216,7 +216,7 @@ header .links a:nth-child(3)::before {
 }
 
 header .links a:nth-child(4)::before {
-    background: #7fc3eb;
+    background: #979797;
     transform: rotate(-1deg);
 }
 
@@ -231,11 +231,13 @@ header .links a::before {
     z-index: -1;
     border-radius: 24px 24px 24px 4px;
     transition: all 0.2s cubic-bezier(.5,0,.5,1.4);
+    opacity: 0;
 }
 
 header .links a:hover::before {
     height: 100%;
     width: 100%;
+    opacity: 100%;
 }
 
 header .burger {
@@ -327,42 +329,31 @@ footer img {
     height: 32px;
 }
 
-footer .lang {
-    padding-top: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 220px;
-}
-
-footer .lang a {
-    font-size: 18px;
-    font-family: var(--font-primary);
-    font-weight: var(--font-weight);
-    color: var(--color-background);
-}
-
-footer .lang a:hover {
-    text-decoration: underline;
-}
-
 footer .refs {
-    padding-top: 8px;
+    padding-top: 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 300px;
+    width: 200px;
 }
 
 footer .refs a, footer .refs p {
     font-size: 18px;
     font-family: var(--font-primary);
     font-weight: var(--font-weight);
-    color: var(--color-background);
+    color: var(--color-secondary);
 }
 
 footer .refs a:hover {
-    text-decoration: underline;
+    color: var(--color-background);
+}
+
+footer p {
+    font-size: 18px;
+    padding-top: 8px;
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight);
+    color: var(--color-background);
 }
 
 /* ==================== 
