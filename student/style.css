@@ -145,12 +145,13 @@ body {
 
 footer {
     height: 20vh;
-    background: var(--color-background);
+    background: var(--color-accent);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0 100px;
     position: relative;
+    box-shadow: 0 -8px 32px 0 var(--color-secondary);
 }
 
 footer img {
@@ -159,42 +160,31 @@ footer img {
     height: 32px;
 }
 
-footer .lang {
-    padding-top: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 220px;
-}
-
-footer .lang a {
-    font-size: 18px;
-    font-family: var(--font-primary);
-    font-weight: var(--font-weight);
-    color: var(--color-accent);
-}
-
-footer .lang a:hover {
-    text-decoration: underline;
-}
-
 footer .refs {
-    padding-top: 8px;
+    padding-top: 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 300px;
+    width: 200px;
 }
 
 footer .refs a, footer .refs p {
     font-size: 18px;
     font-family: var(--font-primary);
     font-weight: var(--font-weight);
-    color: var(--color-accent);
+    color: var(--color-secondary);
 }
 
 footer .refs a:hover {
-    text-decoration: underline;
+    color: var(--color-background);
+}
+
+footer p {
+    font-size: 18px;
+    padding-top: 8px;
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight);
+    color: var(--color-background);
 }
 
 /* ==================== 
