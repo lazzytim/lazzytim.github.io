@@ -258,10 +258,6 @@ header .burger {
     background: var(--color-background);
 }
 
-.land .box.AnimShow {
-    transition-delay: 200ms;
-}
-
 .land .box {
     display: flex;
     flex-direction: column;
@@ -278,6 +274,10 @@ header .burger {
     text-align: center;
 }
 
+.land .box .top.AnimShow {
+    transition-delay: 400ms;
+}
+
 .land .box .text {
     text-align: center;
     max-width: 1000px;
@@ -286,6 +286,10 @@ header .burger {
     font-family: var(--font-primary);
     font-weight: var(--font-weight);
     line-height: 100%;
+}
+
+.land .box .text.AnimShow {
+    transition-delay: 600ms;
 }
 
 .land .box .text .textColored1 {
@@ -318,52 +322,56 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 100px;
     position: relative;
-    box-shadow: 0 -8px 32px 0 var(--color-secondary);
+    border-top: solid 1px var(--color-secondary);
 }
 
-footer img {
-    padding-top: 32px;
-    width: 32px;
-    height: 32px;
+footer .links {
+    padding-top: 40px;
 }
 
-footer .refs {
-    padding-top: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 200px;
-}
-
-footer .refs a, footer .refs p {
-    font-size: 18px;
-    font-family: var(--font-primary);
-    font-weight: var(--font-weight);
+footer .links a {
     color: var(--color-secondary);
+    position: relative;
+    display: inline-flex;
+    margin: 0 4px;
+    padding: 8px;
+    border-radius: 100px;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
 }
 
-footer .refs a:hover {
-    color: var(--color-background);
+footer .links a:hover {
+    color: var(--color-accent);
 }
 
-footer p {
-    font-size: 18px;
-    padding-top: 8px;
+footer .links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-background);
+    transition: all 0.2s ease-in-out;
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-100%) translateY(50%);
+}
+
+footer .links a:hover::before {
+    transform: translateX(0) translateY(0);
+}
+
+footer .links a ion-icon {
+    width: 24px;
+    height: 24px;
+}
+
+footer .copy {
+    color: var(--color-secondary);
+    margin-top: 32px;
     font-family: var(--font-primary);
     font-weight: var(--font-weight);
-    color: var(--color-background);
-}
-
-/* ==================== 
->>> Media Queries: Desktop Adaptation
-==================== */
-
-@media screen and (min-width: 1000px) {
-    footer {
-        border-radius: 16px 16px 0 0;
-    }
 }
 
 /* ==================== 
