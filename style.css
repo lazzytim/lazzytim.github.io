@@ -9,11 +9,19 @@
 
 :root {
     --color-main: #FF6C36;
+    --color-main-hover: #ffb195;
     --color-black: #0F0E13;
     --color-dgray: #5D5B63;
     --color-snow: #fffafa;
     --color-lgray: #DBDBDB;
-    --color-ok: #32ADDA;
+    
+    
+    --color-warns-info: #98e4ff;
+    --color-warns-info-border: #32ADDA;
+    --color-warns-warn: #ffb195;
+    --color-warns-warn-border: #FF6C36;
+    --color-warns-tips: #6edf9d;
+    --color-warns-tips-border: #228f3d;
     
     --font: 'JetBrains Mono';
 }
@@ -58,12 +66,14 @@ h2 {
     font-family: var(--font);
     font-size: 1.4rem;
     color: var(--color-black);
+    padding-bottom: 12px;
 }
 
 h3 {
     font-family: var(--font);
     font-size: 1.2rem;
     color: var(--color-black);
+    padding-bottom: 12px;
 }
 
 /* ####################
@@ -78,20 +88,35 @@ p {
 }
 
 /* ####################
+>>> Lists
+*/
+
+div.listbox {
+    margin: 16px 0;
+}
+
+li {
+    font-family: var(--font);
+    font-size: 1rem;
+    color: var(--color-dgray);
+    list-style: decimal;
+}
+
+/* ####################
 >>> Links
 */
 
-a {
+a.inline {
     position: relative;
     color: var(--color-main);
     transition: all 0.2s ease-in-out;
 }
 
-a:hover {
+a.inline:hover {
     color: var(--color-black);
 }
 
-a::before {
+a.inline::before {
     content: '';
     position: absolute;
     bottom: 0;
@@ -107,9 +132,135 @@ a::before {
     transition: all 0.2s ease-in-out;
 }
 
-a:hover::before {
+a.inline:hover::before {
     width: 100%;
     opacity: 1;
+}
+
+/* ####################
+>>> Buttons
+*/
+
+div.buttons.row {
+    margin: 24px 0 32px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+div.buttons.row a.button {
+    margin-right: 8px;
+}
+
+div.buttons.column {
+    margin: 24px 0 32px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+div.buttons.column a.button {
+    margin: 4px 0;
+}
+
+a.button.main {
+    padding: 8px 12px;
+    background: var(--color-main);
+    border: solid 1px var(--color-main);
+    color: var(--color-black);
+    font-family: var(--font);
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 12px;
+    transition: all 0.2s ease-in-out;
+}
+
+a.button.main:hover {
+    border: solid 1px var(--color-main-hover);
+    background: var(--color-main-hover);    
+}
+
+a.button.alt {
+    padding: 8px 12px;
+    color: var(--color-black);
+    font-family: var(--font);
+    font-size: 1rem;
+    border-radius: 12px;
+    border: solid 1px var(--color-black);
+    transition: all 0.2s ease-in-out;
+}
+
+a.button.alt:hover {
+    background: var(--color-dgray);
+    border-color: var(--color-dgray);
+    color: var(--color-snow);
+}
+
+/* ####################
+>>> Warns
+*/
+
+.warns {
+    position: relative;
+    margin: 12px 0 32px 0;
+    padding: 16px 32px;
+    background: transparent;
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 415px;
+}
+
+.warns.info {
+    background: var(--color-warns-info);
+    border: solid 1px var(--color-warns-info-border);
+}
+
+.warns.info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 100%;
+    background: var(--color-warns-info-border);
+}
+
+.warns.warn {
+    background: var(--color-warns-warn);
+    border: solid 1px var(--color-warns-warn-border);
+}
+
+.warns.warn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 100%;
+    background: var(--color-warns-warn-border);
+}
+
+.warns.tips {
+    background: var(--color-warns-tips);
+    border: solid 1px var(--color-warns-tips-border);
+}
+
+.warns.tips::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 100%;
+    background: var(--color-warns-tips-border);
+}
+
+.warns p {
+    color: var(--color-black);
+}
+
+.warns p a {
+    color: var(--color-dgray);
 }
 
 /* ####################
@@ -124,20 +275,7 @@ div.separator {
 }
 
 /* ####################
->>> Footer
-*/
-
-footer {
-    background: var(--color-snow);
-
-    padding: 96px 32px;
-    width: 100%;
-    height: 200px;
-    border-top: solid 1px var(--color-vgray);
-}
-
-/* ####################
->>> IFrame (Videos)
+>>> Video (iframe)
 */
 
 .video {
