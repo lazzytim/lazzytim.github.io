@@ -7,6 +7,27 @@
     list-style: none;
 }
 
+body {
+    background: var(--color-snow);
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 96px 32px;
+}
+
+*::selection {
+    background: var(--color-main);
+    color: var(--color-black);
+}
+
+#version::after {
+    content: 'Desktop';
+}
+
+/* ####################
+>>> Variables (:root)
+*/
+
+
 :root {
     --color-main: #FF6C36;
     --color-main-hover: #ffb195;
@@ -24,18 +45,6 @@
     --color-warns-tips-border: #228f3d;
     
     --font: 'JetBrains Mono';
-}
-
-body {
-    background: var(--color-snow);
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 96px 32px;
-}
-
-*::selection {
-    background: var(--color-main);
-    color: var(--color-black);
 }
 
 /* ####################
@@ -91,7 +100,7 @@ p {
 >>> Lists
 */
 
-div.listbox {
+.listbox {
     margin: 16px 0;
 }
 
@@ -125,9 +134,9 @@ li {
     height: 100%;
     background: var(--color-main);
     z-index: -1;
-    padding: 4px;
+    padding: 4px 8px;
     border-radius: 4px;
-    transform: translateX(-3px) translateY(4px);
+    transform: translateX(-8px) translateY(4px);
     opacity: 0;
     transition: all 0.2s ease-in-out;
 }
@@ -144,7 +153,7 @@ li {
     align-items: center;
 }
 
-.buttons.row a.button {
+.buttons.row .button {
     margin-right: 8px;
 }
 
@@ -155,12 +164,14 @@ li {
     align-items: start;
 }
 
-.buttons.column a.button {
+.buttons.column .button {
     margin: 4px 0;
 }
 
 .button.main {
     padding: 8px 12px;
+    display: flex;
+    align-items: center;
     background: var(--color-main);
     border: solid 1px var(--color-main);
     color: var(--color-black);
@@ -177,8 +188,15 @@ li {
     background: var(--color-main-hover);    
 }
 
+
+.button.main:hover svg {
+    fill: var(--color-black);
+}
+
 .button.alt {
     padding: 8px 12px;
+    display: flex;
+    align-items: center;
     color: var(--color-black);
     font-family: var(--font);
     font-size: 1rem;
@@ -189,9 +207,17 @@ li {
 }
 
 .button.alt:hover {
-    background: var(--color-dgray);
-    border-color: var(--color-dgray);
-    color: var(--color-snow);
+    background: var(--color-lgray);
+    border-color: var(--color-lgray);
+}
+
+.button svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--color-black);
+    border-radius: 4px;
+    margin-right: 10px;
+    transition: all 0.2s ease-in-out;
 }
 
 /* ####################
@@ -218,7 +244,7 @@ li {
     position: absolute;
     top: 0;
     left: 0;
-    width: 10px;
+    width: 12px;
     height: 100%;
     background: var(--color-warns-info-border);
 }
@@ -233,7 +259,7 @@ li {
     position: absolute;
     top: 0;
     left: 0;
-    width: 10px;
+    width: 12px;
     height: 100%;
     background: var(--color-warns-warn-border);
 }
@@ -248,7 +274,7 @@ li {
     position: absolute;
     top: 0;
     left: 0;
-    width: 10px;
+    width: 12px;
     height: 100%;
     background: var(--color-warns-tips-border);
 }
@@ -257,8 +283,13 @@ li {
     color: var(--color-black);
 }
 
-.warns p a {
+.warns a {
     color: var(--color-dgray);
+    transition: all 0.2s ease-in-out;
+}
+
+.warns a:hover {
+    color: var(--color-black);
 }
 
 /* ####################
@@ -281,6 +312,26 @@ li {
     border-radius: 12px;
     max-width: 500px;
     max-height: 280px;
+}
+
+/* ####################
+>>> Images
+*/
+
+.imgbox {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin: 12px 0;
+}
+
+.imgbox .img {
+    padding-right: 12px;
+}
+
+.img.small {
+    width: 32px;
+    fill: var(--color-dgray);
 }
 
 /* ####################
@@ -309,4 +360,20 @@ li {
 .input:focus {
     outline: none;
     border-color: var(--color-dgray);
+}
+
+@media screen and (max-width: 768px) {
+    .buttons.row {
+        flex-direction: column;
+        align-items: start;
+    }
+    
+    .buttons.row .button {
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+    
+    #version::after {
+        content: 'Adapted (768px)';
+    }
 }
