@@ -11,7 +11,7 @@ body {
     background: var(--color-snow);
     max-width: 600px;
     margin: 0 auto;
-    padding: 96px 32px;
+    padding: 64px 32px 96px 32px;
 }
 
 *::selection {
@@ -57,7 +57,7 @@ header {
 }
 
 header img {
-    margin-bottom: 64px;
+    margin-bottom: 48px;
 }
 
 /* ####################
@@ -146,6 +146,15 @@ li {
     opacity: 1;
 }
 
+.hoverline:hover {
+    color: var(--color-main);
+}
+
+.hoverline::before {
+    height: 2px;
+    padding: 0 8px;
+}
+
 .buttons.row {
     margin: 24px 0 32px 0;
     display: flex;
@@ -188,9 +197,28 @@ li {
     background: var(--color-main-hover);    
 }
 
+.button.mainbig {
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    background: var(--color-main);
+    border: solid 1px var(--color-main);
+    color: var(--color-black);
+    font-family: var(--font);
+    font-size: 1rem;
+    font-weight: 900;
+    border-radius: 12px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
 
-.button.main:hover svg {
-    fill: var(--color-black);
+.button.mainbig:hover {
+    border: solid 1px var(--color-main-hover);
+    background: var(--color-main-hover);    
+}
+
+.button.mainbig svg {
+    margin-right: 18px;
 }
 
 .button.alt {
@@ -303,6 +331,14 @@ li {
     background: var(--color-lgray);
 }
 
+.separator.small {
+    margin: 6px 0;
+}
+
+.transparent {
+    background: transparent;
+}
+
 /* ####################
 >>> Video (iframe)
 */
@@ -320,17 +356,18 @@ li {
 
 .imgbox {
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: start;
     margin: 12px 0;
 }
 
-.imgbox .img {
-    padding-right: 12px;
+.img {
+    padding-right: 16px;
 }
 
 .img.small {
     width: 32px;
+    height: 32px;
     fill: var(--color-dgray);
 }
 
