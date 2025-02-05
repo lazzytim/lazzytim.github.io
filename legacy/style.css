@@ -1,0 +1,458 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    background: var(--color-snow);
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 64px 32px 96px 32px;
+}
+
+*::selection {
+    background: var(--color-main);
+    color: var(--color-black);
+}
+
+#version::after {
+    content: 'Desktop';
+}
+
+/* ####################
+>>> Variables (:root)
+*/
+
+
+:root {
+    --color-main: #FF6C36;
+    --color-main-hover: #ffb195;
+    --color-black: #0F0E13;
+    --color-dgray: #5D5B63;
+    --color-snow: #fffafa;
+    --color-lgray: #DBDBDB;
+    
+    
+    --color-warns-info: #98e4ff;
+    --color-warns-info-border: #32ADDA;
+    --color-warns-warn: #ffb195;
+    --color-warns-warn-border: #FF6C36;
+    --color-warns-tips: #6edf9d;
+    --color-warns-tips-border: #228f3d;
+    
+    --font: 'JetBrains Mono';
+}
+
+/* ####################
+>>> Header Image
+*/
+
+header {
+    display: flex;
+    align-items: center;
+}
+
+header img {
+    margin-bottom: 48px;
+}
+
+/* ####################
+>>> Titles
+*/
+
+h1 {
+    font-family: var(--font);
+    font-size: 1.6rem;
+    color: var(--color-black);
+    padding-bottom: 12px;
+}
+
+h2 {
+    font-family: var(--font);
+    font-size: 1.4rem;
+    color: var(--color-black);
+    padding-bottom: 12px;
+}
+
+h3 {
+    font-family: var(--font);
+    font-size: 1.2rem;
+    color: var(--color-black);
+    padding-bottom: 12px;
+}
+
+/* ####################
+>>> Paragraph
+*/
+
+p {
+    font-family: var(--font);
+    font-size: 1rem;
+    color: var(--color-dgray);
+    max-width: 470px;
+    line-height: 150%;
+}
+
+/* ####################
+>>> Lists
+*/
+
+.listbox {
+    margin: 16px 0;
+}
+
+li {
+    font-family: var(--font);
+    font-size: 1rem;
+    color: var(--color-dgray);
+    list-style: decimal;
+}
+
+/* ####################
+>>> Links
+*/
+
+.inline {
+    position: relative;
+    color: var(--color-main);
+    transition: all 0.2s ease-in-out;
+}
+
+.inline:hover {
+    color: var(--color-black);
+}
+
+.inline::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--color-main);
+    z-index: -1;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transform: translateX(-8px) translateY(4px);
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.inline:hover::before {
+    width: 100%;
+    opacity: 1;
+}
+
+.hoverline:hover {
+    color: var(--color-main);
+}
+
+.hoverline::before {
+    height: 2px;
+    padding: 0 8px;
+}
+
+.buttons.row {
+    margin: 24px 0 32px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.buttons.row .button {
+    margin-right: 8px;
+}
+
+.buttons.column {
+    margin: 24px 0 32px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.buttons.column .button {
+    margin: 4px 0;
+}
+
+.button.main {
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    background: var(--color-main);
+    border: solid 1px var(--color-main);
+    color: var(--color-black);
+    font-family: var(--font);
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 12px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.button.main:hover {
+    border: solid 1px var(--color-main-hover);
+    background: var(--color-main-hover);    
+}
+
+.button.alt {
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    color: var(--color-dgray);
+    font-family: var(--font);
+    font-size: 1rem;
+    border-radius: 12px;
+    border: solid 1px var(--color-dgray);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.button.alt:hover {
+    background: var(--color-lgray);
+    border-color: var(--color-lgray);
+}
+
+.button svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--color-black);
+    border-radius: 4px;
+    margin-right: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+/* ####################
+>>> Warns
+*/
+
+.warns {
+    position: relative;
+    margin: 12px 0 32px 0;
+    padding: 16px 32px;
+    background: transparent;
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 415px;
+}
+
+.warns.info {
+    background: var(--color-warns-info);
+    border: solid 1px var(--color-warns-info-border);
+}
+
+.warns.info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 100%;
+    background: var(--color-warns-info-border);
+}
+
+.warns.warn {
+    background: var(--color-warns-warn);
+    border: solid 1px var(--color-warns-warn-border);
+}
+
+.warns.warn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 100%;
+    background: var(--color-warns-warn-border);
+}
+
+.warns.tips {
+    background: var(--color-warns-tips);
+    border: solid 1px var(--color-warns-tips-border);
+}
+
+.warns.tips::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 100%;
+    background: var(--color-warns-tips-border);
+}
+
+.warns p {
+    color: var(--color-black);
+}
+
+.warns a {
+    color: var(--color-dgray);
+    transition: all 0.2s ease-in-out;
+}
+
+.warns a:hover {
+    color: var(--color-black);
+}
+
+/* ####################
+>>> Codelines & Codeblocks
+*/
+
+.codeline {
+    position: relative;
+    padding: 0 4px;
+    border-radius: 4px;
+    border: solid 1px #a9a7b3;
+    background: var(--color-lgray);
+}
+
+.codeblock {
+    position: relative;
+    height: fit-content;
+    width: 80%;
+    border-radius: 4px;
+    border: solid 1px #a9a7b3;
+    background: var(--color-lgray);
+    padding: 12px 16px;
+    
+    font-family: var(--font);
+    font-size: 1rem;
+    color: var(--color-dgray);
+    
+    overflow: hidden;
+}
+
+.codeblock .codeblock-copy {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 4px 8px;
+    background: transparent;
+    border: none;
+    border-bottom: solid 1px #a9a7b3;
+    border-left: solid 1px #a9a7b3;
+    border-radius: 0 0 0 4px;
+    cursor: pointer;
+    outline: 0;
+    
+    font-family: var(--font);
+    font-size: 0.8rem;
+    color: var(--color-dgray);
+    
+    z-index: 1;
+    
+    transition: all 0.2s ease-in-out;
+}
+
+.codeblock .codeblock-copy:hover {
+    background: var(--color-dgray);
+    color: var(--color-lgray);
+}
+
+/* ####################
+>>> Miscellaneous
+*/
+
+.separator {
+    width: 80%;
+    height: 2px;
+    margin: 24px 0;
+    background: var(--color-lgray);
+}
+
+.separator.small {
+    margin: 6px 0;
+}
+
+.transparent {
+    background: transparent;
+}
+
+.keystroke {
+    padding: 0 4px;
+    border-radius: 4px;
+    border: solid 1px #a9a7b3;
+    background: #dbdbdb;
+    
+    font-size: 0.8rem;
+}
+
+/* ####################
+>>> Video (iframe)
+*/
+
+.video {
+    position: relative;
+    border-radius: 12px;
+    max-width: 500px;
+    max-height: 280px;
+}
+
+/* ####################
+>>> Images
+*/
+
+.imgbox {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    margin: 12px 0;
+}
+
+.img {
+    padding-right: 16px;
+}
+
+.img.small {
+    width: 32px;
+    height: 32px;
+    fill: var(--color-dgray);
+}
+
+/* ####################
+>>> Input
+*/
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.input {
+    margin: 4px 0;
+    padding: 12px 16px;
+    
+    background: var(--color-lgray);
+    border: solid 1px var(--color-lgray);
+    color: var(--color-black);
+    font-family: var(--font);
+    font-size: 1rem;
+    border-radius: 12px;
+    transition: all 0.2s ease-in-out;
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--color-dgray);
+}
+
+@media screen and (max-width: 768px) {
+    .buttons.row {
+        flex-direction: column;
+        align-items: start;
+    }
+    
+    .buttons.row .button {
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+    
+    #version::after {
+        content: 'Adapted (768px)';
+    }
+}
