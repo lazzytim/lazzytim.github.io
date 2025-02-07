@@ -147,8 +147,10 @@ footer a {
 }
 
 @media and screen (max-width: 768px) {
-    .cursor, .cursorring {
+    .cursor, 
+    .cursorring {
         display: none;
+        opacity: 0;
     }
 }
 
