@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Timothy Deletrez</title>
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="icon favicon" href="../../assets/logos/64orange.png">
+        
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </head>
+    <body>
+        <div class="notifications">
+            <div class="item" id="notification-1">
+                <ion-icon name="checkmark"></ion-icon>
+                <span>Your download just started.</span>
+                <div class="loading" id="loading"></div>
+            </div>
+        </div>
+        <div class="cursor" id="cursorInside"></div>
+        <div class="cursorring" id="cursorOutside"></div>
+        <header>
+            <img src="../../assets/logos/64black.png" alt="" draggable="false">
+        </header>
+        <section>
+            <h1>Custom CSS Buttons</h1>
+                
+            <div class="bar"></div>
+            
+            <p>
+                I've been testing button designs for quite a while and i fell in love with these little buttons. I hope you'll like them as well!<br>
+            </p>
+            
+            <div class="bar"></div>
+            
+            <h3>Import the style sheet</h3>
+            
+            <p>Wanna start using my buttons style sheet?<br>Nothing is more simple then that. Just add this line in the &lt;head&gt; of your .html file.</p>
+            
+            <pre class="code">
+&lt;link src="https://lazzytim.github.io/assets/css/buttons.css"&gt;&lt;/link&gt;
+            </pre>
+            
+            <div class="bar"></div>
+            
+            <h3>Create the buttons</h3>
+            
+            <p>To create a buttons, use one of the class below:<br>And replace the $class in the code below.</p>
+            
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Class ($class)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Basic</th>
+                        <td>"basic"</td>
+                    </tr>
+                    <tr>
+                        <td>Link</th>
+                        <td>"link"</td>
+                    </tr>
+                    <tr>
+                        <td>Warning</th>
+                        <td>"warning"</td>
+                    </tr>
+                    <tr>
+                        <td>Danger</th>
+                        <td>"danger"</td>
+                    </tr>
+                    <tr>
+                        <td>Destructive</th>
+                        <td>"destructive"</td>
+                    </tr>
+                </tbody>
+            </table>
+            <pre class="code">
+&lt;button class="$class"&gt;Exemple Text&lt;button&gt;
+            </pre>
+            
+            <div class="bar"></div>
+            
+            <h3>Stylesheet References</h3>
+            
+            <p>Here is a detailed copy of how the button is styled in CSS.</p>
+            
+            <pre class="code">
+button {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: solid 1px #d4cfcf;
+    box-shadow: 0px 0px 1px 4px transparent;
+    background: #ece8e8;
+    font-family: 'Open Sans';
+    font-size: 0.9em;
+    font-weight: 600;
+    cursor: pointer;
+    
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s ease-in-out;
+}
+
+button:disabled {
+    color: #5e5e5e !important; 
+    cursor: not-allowed;
+}
+
+button:disabled {
+    background: #ece8e8 !important;
+    color: #5e5e5e !important;
+    border-color: #d4cfcf !important;
+    box-shadow: 0px 0px 1px 4px transparent !important;
+}
+
+button ion-icon {
+    font-size: 1.4em;
+}
+
+button:hover, select:hover {
+    background: #d8d5d8;
+}
+
+button.basic:hover {
+    background: #4e4c4d;
+    color: #ffffff;
+    border-color: #383737;
+    box-shadow: 0px 0px 1px 4px #4e4c4d77;
+}
+
+button.danger:hover {
+    background: #d63d00;
+    color: #ffffff;
+    border-color: #992b00;
+    box-shadow: 0px 0px 1px 4px #d63d0077;
+}
+
+button.link:hover {
+    background: #0f91b1;
+    color: #ffffff;
+    border-color: #0b6b83;
+    box-shadow: 0px 0px 1px 4px #0f91b177;
+}
+
+button.warning:hover {
+    background: #b1860f;
+    color: #ffffff;
+    border-color: #8b6a0c;
+    box-shadow: 0px 0px 1px 4px #b1860f77;
+}
+
+button.confirm:hover {
+    background: #73b10f;
+    color: #ffffff;
+    border-color: #5c8d0e;
+    box-shadow: 0px 0px 1px 4px #73b10f77;
+}
+
+button.destructive:hover {
+    background: #ff0000;
+    color: #ffffff;
+    border-color: #d10000;
+    box-shadow: 0px 0px 1px 4px #ff000077;
+}
+            </pre>
+            
+            <a href="../../assets/css/buttons.css" class="button-main">Access to raw stylesheet</a>
+        </section>
+        <footer>
+            <p>LAZZYTIM &copy; 2024-2025</p>
+            <p>
+                Wanna talk?
+                <a class="link" href="mailto:deletrez.timothy@gmail.com">Mail me</a>
+            </p>
+            
+        </footer>
+        
+        <!-- JS Import -->
+        <script src="../../app.js"></script>
+    </body>
+</html>

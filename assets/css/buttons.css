@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300..800;1,300..800&display=swap');
+
+button {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: solid 1px #d4cfcf;
+    box-shadow: 0px 0px 1px 4px transparent;
+    background: #ece8e8;
+    font-family: 'Open Sans';
+    font-size: 0.9em;
+    font-weight: 600;
+    cursor: pointer;
+    
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s ease-in-out;
+}
+
+button:disabled {
+    color: #5e5e5e !important; 
+    cursor: not-allowed;
+}
+
+button:disabled {
+    background: #ece8e8 !important;
+    color: #5e5e5e !important;
+    border-color: #d4cfcf !important;
+    box-shadow: 0px 0px 1px 4px transparent !important;
+}
+
+button ion-icon {
+    font-size: 1.4em;
+}
+
+button:hover, select:hover {
+    background: #d8d5d8;
+}
+
+button.basic:hover {
+    background: #4e4c4d;
+    color: #ffffff;
+    border-color: #383737;
+    box-shadow: 0px 0px 1px 4px #4e4c4d77;
+}
+
+button.danger:hover {
+    background: #d63d00;
+    color: #ffffff;
+    border-color: #992b00;
+    box-shadow: 0px 0px 1px 4px #d63d0077;
+}
+
+button.link:hover {
+    background: #0f91b1;
+    color: #ffffff;
+    border-color: #0b6b83;
+    box-shadow: 0px 0px 1px 4px #0f91b177;
+}
+
+button.warning:hover {
+    background: #b1860f;
+    color: #ffffff;
+    border-color: #8b6a0c;
+    box-shadow: 0px 0px 1px 4px #b1860f77;
+}
+
+button.confirm:hover {
+    background: #73b10f;
+    color: #ffffff;
+    border-color: #5c8d0e;
+    box-shadow: 0px 0px 1px 4px #73b10f77;
+}
+
+button.destructive:hover {
+    background: #ff0000;
+    color: #ffffff;
+    border-color: #d10000;
+    box-shadow: 0px 0px 1px 4px #ff000077;
+}

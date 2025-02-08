@@ -13,21 +13,37 @@
 }
 
 *::-webkit-scrollbar {
+    border-radius: 100px;
+    background: transparent;
+}
+
+*::-webkit-scrollbar-button {
     display: none;
+}
+
+*::-webkit-scrollbar-corner {
+    display: none;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: var(--radius);
+    border: solid 6px var(--white-color);
 }
 
 :root {
     --main-color: #ff6c36;
     
     --white-color: #fffafa;
-    --light-color: #c5bfbf;
+    --light-color: #e7e0e0;
+    --border-color: #c5bfbf;
     
     --inte-color: #37363a;
     
     --dark-color: #212024;
     --black-color: #0f0e13;
     
-    --radius: 16px;
+    --radius: 12px;
 }
 
 html {
@@ -51,7 +67,7 @@ footer {
     justify-content: space-between;
     padding: 32px 0 48px 0;
     margin-top: 32px;
-    border-top: solid 1px var(--light-color);
+    border-top: solid 1px var(--border-color);
 }
 
 footer p,
@@ -83,7 +99,7 @@ footer a {
     background: transparent;
     backdrop-filter: blur(132px);
     border-radius: var(--radius);
-    border: solid 1px var(--light-color);
+    border: solid 1px var(--border-color);
     padding: 0 24px;
     overflow: hidden;
     transition: all 0.2s ease-in-out;
@@ -97,7 +113,7 @@ footer a {
     height: 4px;
     width: 100%;
     border-radius: 0 var(--radius) var(--radius) 0;
-    background: var(--light-color);
+    background: var(--border-color);
     transition: all 0.2s ease-in-out;
 }
 
@@ -139,11 +155,21 @@ footer a {
     width: 16px;
     height: 16px;
     border-radius: 100%;
-    background: var(--light-color);
+    background: var(--border-color);
     border: solid 1px var(--inte-color);
     opacity: 0.4;
     pointer-events: none;
     transform: translateX(-50%) translateY(-50%);
+}
+
+/* >>>>>>>>>>>>>>>>>>>>> ##
+## Buttons               ##
+## <<<<<<<<<<<<<<<<<<<<< */
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 /* >>>>>>>>>>>>>>>>>>>>> ##
@@ -175,7 +201,7 @@ h3 {
 ## Paragraph             ##
 ## <<<<<<<<<<<<<<<<>><<< */
 
-p {
+p, a {
     font-family: 'Inter Tight';
     font-size: 1.1em;
     color: var(--inte-color);
@@ -232,19 +258,72 @@ li {
 }
 
 /* >>>>>>>>>>>>>>>>>>>>> ##
+## Table                 ##
+## <<<<<<<<<<<<<<<<>><<< */
+
+.table {
+    border-collapse: collapse;
+    font-family: 'Inter Tight';
+    font-size: 0.8em;
+    font-weight: 500;
+    
+    overflow: hidden;
+    background: var(--light-color);
+    border-radius: calc(var(--radius) - 4px);
+    margin-bottom: 16px;
+}
+
+.table thead tr th{
+    padding: 8px 12px;
+    background-color: var(--border-color);
+    border: solid 1px var(--border-color);
+    text-align: left;
+    font-weight: 600;
+}
+
+.table tbody tr td {
+    padding: 8px 12px;
+    background-color: var(--light-color);
+    border: solid 1px var(--border-color);
+}
+
+/* >>>>>>>>>>>>>>>>>>>>> ##
 ## Miscellaneous         ##
 ## <<<<<<<<<<<<<<<<>><<< */
 
 .bar {
     margin: 32px 0;
     height: 1px;
-    background: var(--light-color)
+    background: var(--border-color)
 }
 
 .transparant {
     background: transparent;
 }
 
+.code {
+    background: var(--light-color);
+    border: solid 1px var(--border-color);
+    border-radius: calc(var(--radius) - 4px);
+    padding: 16px 20px;
+    
+    font-family: 'JetBrains Mono';
+    font-size: 0.8em;
+    overflow-x: scroll;
+    white-space: line;
+    margin-bottom: 16px;
+}
+
+.code::-webkit-scrollbar {
+    border-radius: var(--radius);
+    background: var(--light-color);
+}
+
+.code::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: var(--radius);
+    border: solid 6px var(--light-color);
+}
 
 /* >>>>>>>>>>>>>>>>>>>>> ##
 ## Buttons: Main         ##
@@ -252,7 +331,7 @@ li {
 
 .button-main {
     background: var(--dark-color);
-    color: var(--light-color);
+    color: var(--border-color);
     border: none;
     border-radius: var(--radius);
     padding: 10px 18px;
@@ -260,6 +339,7 @@ li {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    width: fit-content;
     transition: all 0.2s ease-in-out;
 }
 
@@ -268,7 +348,7 @@ li {
     scale: 0.95;
 }
 
-.button-alt:active {
+.button-main:active {
     scale: 0.8;
 }
 
@@ -288,7 +368,7 @@ li {
 
 .button-alt {
     background: var(--inte-color);
-    color: var(--light-color);
+    color: var(--border-color);
     border: none;
     border-radius: var(--radius);
     padding: 10px 18px;
@@ -296,6 +376,7 @@ li {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    width: fit-content;
     transition: all 0.2s ease-in-out;
 }
 
@@ -325,7 +406,7 @@ li {
 .button-trans {
     backdrop-filter: blur(12px);
     background: #00000030;
-    color: var(--light-color);
+    color: var(--border-color);
     border: none;
     border-radius: var(--radius);
     padding: 10px 18px;
@@ -333,6 +414,7 @@ li {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    width: fit-content;
     transition: all 0.2s ease-in-out;
 }
 
