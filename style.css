@@ -10,6 +10,7 @@
 
 *::selection {
     background: var(--main-color);
+    color: var(--white-color);
 }
 
 *::-webkit-scrollbar {
@@ -32,7 +33,7 @@
 }
 
 :root {
-    --main-color: #ff6c36;
+    --main-color: #ff4500;
     
     --white-color: #fffafa;
     --light-color: #e7e0e0;
@@ -58,7 +59,7 @@ body {
 }
 
 header {
-    padding: 24px 0 48px 0;
+    padding: 64px 0 48px 0;
 }
 
 footer {
@@ -162,7 +163,12 @@ footer a {
     transform: translateX(-50%) translateY(-50%);
 }
 
-@media and screen (max-width: 768px) {
+@media screen and (max-width: 768px) {
+    
+    * {
+        cursor: default;
+    }
+    
     .cursor, 
     .cursorring {
         display: none;
@@ -252,7 +258,7 @@ li {
     z-index: -1;
     transform: translateX(-10px) translateY(4px);
     transition: all 0.2s ease-in-out;
-    border-radius: calc(var(--radius) - 6px);
+    border-radius: 0 64px 64px 0;
 }
 
 .link:hover {
